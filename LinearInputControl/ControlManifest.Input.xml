@@ -12,9 +12,9 @@
           <type>FP</type>
           <type>Decimal</type>
        </type-group>
-       <property name="controlValue"
-          display-name-key="controlValue_Display_Key"
-          description-key="controlValue_Desc_Key"
+       <property name="LinearInputControl"
+          display-name-key="LinearInputControl_Display_Key"
+          description-key="LinearInputControl_Desc_Key"
           of-type-group="numbers"
           usage="bound"
           required="true" />

@@ -3,6 +3,7 @@ import { IInputs, IOutputs } from "./generated/ManifestTypes";
 export class LinearInputControl
   implements ComponentFramework.StandardControl<IInputs, IOutputs>
 {
+  private _container: HTMLDivElement;
   /**
    * Empty constructor.
    */
@@ -16,12 +17,16 @@ export class LinearInputControl
    * @param state A piece of data that persists in one session for a single user. Can be set at any point in a controls life cycle by calling 'setControlState' in the Mode interface.
    * @param container If a control is marked control-type='standard', it will receive an empty div element within which it can render its content.
    */
-  public init(): // context: ComponentFramework.Context<IInputs>,
-  // notifyOutputChanged: () => void,
-  // state: ComponentFramework.Dictionary,
-  // container: HTMLDivElement
-  void {
+  public init(
+    context: ComponentFramework.Context<IInputs>,
+    notifyOutputChanged: () => void,
+    state: ComponentFramework.Dictionary,
+    container: HTMLDivElement
+  ): void {
     // Add control initialization code
+    this._container = container;
+    this._container.style.backgroundColor = "Yellow";
+    this._container.innerHTML = context.parameters.LinearInputControl.raw + "";
   }
 
   /**
@@ -31,8 +36,10 @@ export class LinearInputControl
   //   public updateView(context: ComponentFramework.Context<IInputs>): void {
   //     // Add code to update control view
   //   }
-  public updateView(): void {
+  public updateView(context: ComponentFramework.Context<IInputs>): void {
     // Add code to update control view
+    this._container.innerHTML = context.parameters.LinearInputControl.raw + "";
+    console.log("this", this._container.innerHTML);
   }
 
   /**
